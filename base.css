@@ -1,0 +1,34 @@
+:root{
+    --primary-c: #fdd000;
+    --text-c:var(--black-c);
+    --text-c-white:var(--white-c);
+    --bg-linear:linear-gradient(180deg, #d19a00, var(--main-c));
+    --bg-head:#ffffe7;
+    --white-c:#ffffe7;
+    --white-c-1:#ffffc1;
+    --white-c-2:#fffb86;
+    --white-c-3:#fff041;
+
+    --black-c-6:#d19a00;
+    --black-c-7:#a66e02;
+    --black-c-8:#89550a;
+    --black-c-9:#74460f;
+    --black-c:#442404;
+}
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Segoe UI',sans-serif;
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+}
