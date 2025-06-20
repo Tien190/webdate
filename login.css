@@ -13,7 +13,7 @@ body {
     padding: 0;
     font-family: sans-serif;
     height: 100vh;
-    overflow: hidden; /* tránh scroll ngang */
+    overflow: hidden;
 }
 .ctn {
     background: rgba(255, 255, 255, 0.2);
@@ -125,5 +125,5 @@ nav img{
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/background.jpg');
     background-size: cover;
     background-position: center;
-    position: relative; /* thêm để định vị logo tuyệt đối */
+    position: relative;
 }
