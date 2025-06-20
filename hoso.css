@@ -4,15 +4,37 @@
             box-sizing: border-box;
         }
 
+.header{
+min-height:100vh ;
+width: 100%;
+
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+nav img {
+    width: 150px; 
+    height: 100px;
+}
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #eca1ba 0%, #db3b63 100%);
             min-height: 100vh;
-            display: flex;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-        }
+    }
 
         .profile-card {
             background: rgba(255, 255, 255, 0.95);
@@ -31,7 +53,7 @@
         }
 
         .profile-header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #4581b6 0%, #aedee0 100%);
             padding: 30px;
             text-align: center;
             position: relative;
@@ -184,3 +206,5 @@
                 font-size: 24px;
             }
         }
+
+        
