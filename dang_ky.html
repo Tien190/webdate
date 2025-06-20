@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ctn">
+    <form action="#" method="post" id="form-2" class="form">
+        <!-- csrf_token -->
+        <h3 class="title">Đăng ký</h3>
+        
+        <div class="form-group">
+            <label for="full-name" class="form-label">Họ và Tên</label>
+            <input type="text" id="full-name" name="full-name" class="form-control" placeholder="Nhập Họ và Tên">
+            <span class="form-mess"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="form-email" class="form-label">Email</label>
+            <input type="email" id="form-email" name="email" class="form-control" placeholder="Nhập email">
+            <span class="form-mess"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="form-password" class="form-label">Mật khẩu</label>
+            <input type="password" id="form-password" name="password" class="form-control" placeholder="Nhập mật khẩu">
+            <span class="form-mess"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="password-comfirmation" class="form-label">Nhập lại mật khẩu</label>
+            <input type="password" id="password-comfirmation" name="password-confirmation" class="form-control" placeholder="Nhập lại mật khẩu">
+            <span class="form-mess"></span>
+        </div>
+        
+        <div class="form-btn">
+            <button type="submit" class="form-btn__it">Đăng ký</button>
+        </div>
+    </form>
+
+
+    <div class="success-message" id="success-message" style="color: green; text-align: center; display: none;">
+        <p>Đăng ký thành công!</p>
+    </div>
+
+    <div class="other">
+        <span>Bạn đã có tài khoản?</span>
+        <a href="dang_nhap.html" class="other__link">
+            <span>Đăng nhập</span>
+        </a>
+    </div>
+</div>
+
+<script src="js/signUp.js"></script>
+
+</body>
+</html>
