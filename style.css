@@ -74,6 +74,7 @@ nav img{
   background: transparent;
   position: relative;
   cursor: pointer;
+  font-weight: bold;
 } 
 .hero-btn:hover{
   border: 1px solid #f44336;
