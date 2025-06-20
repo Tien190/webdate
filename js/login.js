@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
            
             setTimeout(function() {
-                window.location.href = 'Index.html';
-            }, 3000);
+                window.location.href = 'HOME.html';
+            }, 500);
         }
     });
 

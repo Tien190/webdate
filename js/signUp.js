@@ -48,7 +48,7 @@ submitBtn.addEventListener('click', function (e) {
         successBox.style.display = 'block';
         setTimeout(() => {
             window.location.href = 'dang_nhap.html';
-        }, 3000);
+        }, 500);
     }
 });
 
