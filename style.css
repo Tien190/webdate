@@ -57,7 +57,7 @@ nav img{
   text-align: center;
 }
 .text-box h1{
-  font-size:62px;
+  font-size:60px;
 }
 .text-box{
   margin:10px 0 40px;
@@ -68,8 +68,8 @@ nav img{
   display: inline-block;
   text-decoration:none ;
   color: #fff;
-  border: 1px solid #fff;
-  padding:12 px 34px ;
+  border: 1px solid #504f4f;
+  padding: 10px 34px ;
   font-size: 25px;
   background: transparent;
   position: relative;
@@ -125,10 +125,11 @@ nav .fa-solid{
 h1{
   font-size: 36px;
   font-weight: 600;
+  color: rgb(245, 122, 139);
 }
 
 p{
-  color: #777;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 300;
   line-height: 22px;
@@ -156,5 +157,18 @@ p{
   max-width: 500px;
   border-radius: 10px;
   object-fit: cover;
+}
+
+.footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  color: #555;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
 }
 
