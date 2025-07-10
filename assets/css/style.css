@@ -1,0 +1,269 @@
+*{
+  margin:0;
+  padding:0;
+}
+.header{
+min-height:100vh ;
+width: 100%;
+background-image: linear-gradient(rgba(4,9,30,0.7)),url(../img/background.jpg);
+background-position: center;
+background-size: cover;
+position: relative;
+}
+
+nav{
+    display:flex ;
+    padding:0% ;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+  width: 130px;
+}
+.nav-link{
+  flex: 1;
+  text-align:right ;
+}
+.nav-link ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+.nav-link ul li a{
+  color:#fff;
+  text-decoration:none ;
+  font-style: 13px;
+}
+.nav-link ul li::after{
+  content:'';
+  width:00%;
+  height:2px;
+  background:#f44336;
+  display: block;
+  margin:auto;
+  transition:0.5s;
+}
+.nav-link ul li:hover::after{
+  width:100% ;
+}
+.text-box{
+  width:90%;
+  color: #fff;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+.text-box h1{
+  font-size:60px;
+}
+.text-box{
+  margin:10px 0 40px;
+  font-size:18px;
+  color:#fff
+}
+.hero-btn{
+  display: inline-block;
+  text-decoration:none ;
+  color: #fff;
+  border: 1px solid #504f4f;
+  padding: 10px 34px ;
+  font-size: 25px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+} 
+.hero-btn:hover{
+  border: 1px solid #f44336;
+  background: #f44336;
+  transition: 1s;
+}
+
+nav .fa-solid{
+  display: none;
+}
+@media (max-width: 700px) {
+
+  .text-box h1{
+  font-size:30px;
+}
+.nav-link ul li{
+  display:block;
+  
+}
+
+.nav-link{
+  position:absolute;
+  background: #f44336;
+  height: 100vh;
+  width: 200px;
+  top: 0;
+  right: -190px;
+  text-align: left;
+  z-index: 2;
+  transition: 1s;
+}
+  nav .fa-solid{
+    display: block;
+    color: #fff;
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .nav-link ul{
+    margin: 30px;
+  }
+}
+
+.about-section {
+  background-color: #faecf0;
+  padding: 80px 5%;
+  font-family: sans-serif;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 55%;
+}
+
+.about-text h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.about-text p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.8;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.about-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 50% 50% 0 0;
+  object-fit: cover;
+}
+
+.about-extra {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-extra-img,
+.about-extra-text {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.about-extra-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.about-extra-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+
+h1{
+  font-size: 36px;
+  font-weight: 600;
+  color: rgb(245, 122, 139);
+}
+
+p{
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px;
+}
+
+.row{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.footer{
+width: 100%;
+text-align: center;
+padding: 30px 0;
+color: rgb(56, 44, 44);
+
+}
+
+.footer h4{
+margin-bottom: 25px;
+margin-top: 20px;
+font-weight: 600;
+color: rgb(56, 44, 44);
+
+}
+
+.icons .fa-brands{
+color: #f44336;
+margin: 0 13px;
+cursor: pointer;
+padding: 18px 0;
+}
+.fa-regular{
+color: #f44336;
+}
+
+p {
+  color: #8a8282; 
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px;
+}
+
+/* Logo đẹp + chữ HeartMatch */
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-box img {
+  width: 300px; /* logo to hơn */
+  height: auto;
+  margin-left:00;
+}
+
+.logo-text {
+  font-size: 37px;
+  font-weight: bold;
+  color: #f44336;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  margin-left: -60px;
+}
