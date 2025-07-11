@@ -1,22 +1,3 @@
-<?php
-session_start();
-require_once('includes/config.php');
-if (isset($_SESSION['user_id'])) {
-  $user_id = $_SESSION['user_id'];
-  $stmt = $conn->prepare("SELECT * FROM personal_information WHERE user_id = ?");
-  $stmt->bind_param("i", $user_id);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $user = null;
-  if ($result->num_rows > 0) {
-    $user = $result->fetch_assoc();
-  }
-} else {
-  header('Location: signin.php');
-}
-?>
-
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -35,9 +16,16 @@ if (isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-  <nav>
-    <a href="index.php"><img src="assets/img/Logo.png"></a>
-  </nav>
+  <nav class="header-nav">
+  <a href="index.php" class="logo-box" style="display: flex; align-items: center; text-decoration: none;">
+    <img src="assets/img/Logo.png" alt="Logo" style="height: 100px; width: 190px;">
+    <span class="logo-text" style="margin-left: -38px; font-size: 40px; font-weight: bold; color: #e91e63;">HeartMatch</span>
+  </a>
+
+  <a href="logout.php" class="logout-btn">Đăng xuất</a>
+</nav>
+
+
   <?php if ($user): ?>
     <div class="profile-card">
       <div class="profile-header">
@@ -89,7 +77,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
         </div>
         <div class="info-item">
-          <button id="editBtn" type="button">✏️ Sửa thông tin</button>
+<button id="editBtn" type="button">✏️ Sửa thông tin</button>
         </div>
       </div>
     </div>
@@ -143,7 +131,7 @@ if (isset($_SESSION['user_id'])) {
       <input type="text" name="current_residence" value="<?= htmlspecialchars($user['current_residence']) ?>" required placeholder="Nơi ở hiện tại">
     </div>
     <div class="info-item">
-      <input type="text" name="hometown" value="<?= htmlspecialchars($user['hometown']) ?>" required placeholder="Quê quán">
+<input type="text" name="hometown" value="<?= htmlspecialchars($user['hometown']) ?>" required placeholder="Quê quán">
     </div>
     <div class="info-item">
       <input type="text" name="job" value="<?= htmlspecialchars($user['job']) ?>" required placeholder="Nghề nghiệp">
