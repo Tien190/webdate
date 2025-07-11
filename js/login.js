@@ -1,65 +1,33 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('form-2');
-    const emailField = document.getElementById('login-email');
-    const passwordField = document.getElementById('login-password');
-    const successBox = document.getElementById('success-message'); 
+$(document).ready(function () {
+  $('#form-2').on('submit', function (e) {
+    e.preventDefault();
 
-    form.addEventListener('submit', function(event) {
-        let valid = true;
+    const email = $('#login-email').val();
+    const password = $('#login-password').val();
 
-        clearError(emailField);
-        clearError(passwordField);
+    $.post('backend/api/login.php', {
+      email: email,
+      password: password
+    }, function (data) {
+      let res;
+      try {
+        res = typeof data === "string" ? JSON.parse(data) : data;
+      } catch (e) {
+        alert("❌ Server trả về dữ liệu lỗi");
+        console.error("Lỗi JSON:", data);
+        return;
+      }
 
-        
-        if (!validateEmail(emailField.value)) {
-            valid = false;
-            showError(emailField, 'Email không hợp lệ');
-        }
-
-        if (passwordField.value.trim() === '') {
-            valid = false;
-            showError(passwordField, 'Mật khẩu không được để trống');
-        }
-
-        
-        if (!valid) {
-            event.preventDefault();
-        } else {
-            event.preventDefault(); 
-
-            
-            if (successBox) {
-                successBox.style.display = 'block';
-            }
-
-           
-            setTimeout(function() {
-                window.location.href = 'HOME.html';
-            }, 500);
-        }
+      if (res.success) {
+        $('#success-message').show();
+        setTimeout(() => {
+          window.location.href = "profile.html"; // chuyển sang trang chính nếu cần
+        }, 1000);
+      } else {
+        alert("❌ " + res.message);
+      }
+    }).fail(function () {
+      alert("❌ Không thể kết nối đến server.");
     });
-
-   
-    function validateEmail(email) {
-        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return regex.test(email);
-    }
-
-    
-    function showError(input, message) {
-        const errorElement = document.createElement('div');
-        errorElement.classList.add('error-message');
-        errorElement.innerText = message;
-        input.parentElement.appendChild(errorElement);
-        input.parentElement.classList.add('invalid');
-    }
-
-    
-    function clearError(input) {
-        const errorElements = input.parentElement.querySelectorAll('.error-message');
-        errorElements.forEach(function(element) {
-            element.remove();
-        });
-        input.parentElement.classList.remove('invalid');
-    }
+  });
 });

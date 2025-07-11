@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    font-family:sans-serif;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    overflow: hidden; 
+}
+.ctn {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 24px 24px;
+    font-size: 1.6rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 400px;
+    width: 90%;
+}
+
+.form{
+    width: 350px;
+}
+.title{
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 38px;
+}
+.form-group{
+    margin-bottom: 20px;
+}
+.form-group.invalid .form-mess{
+    color: red;
+}
+.form-group.invalid input[type=text],
+.form-group.invalid input[type=email],
+.form-group.invalid input[type=password]{
+    border: 2px solid red;
+}
+.form-label{
+    display: block;
+    line-height: 1.5;
+    color: rgb(232, 240, 234);
+}
+
+input[type=text],
+input[type=email],
+input[type=password]{
+    width: 100%;
+    padding:10px 12px;
+    font-size: 1.6rem;
+    border-radius: 2px;
+    border: 2px solid #d5d5d5;
+    outline:none;
+    transition: all ease-in-out 0.1s ;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus{
+    border: 2px solid #15ff00;
+}
+.form-mess{
+    font-size: 1.4rem;
+}
+.form-btn__it{
+    width: 100%;
+    font-size: 2rem;
+    color: #f1f1f1;
+    background-color: #319f7a;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all ease-in-out 0.1s ;
+    font-weight: bold;
+}
+.form-btn__it:hover{
+    background-color: #2a8a6a;
+}
+.other{
+    text-align: center;
+    margin-top: 12px;
+    color: rgb(221, 170, 39);
+}
+.other__link{
+    display: inline;
+    color: white;
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+nav img{
+  width: 90px;
+}
+.nav-link ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+.nav-link ul li a{
+  color:#fff;
+  text-decoration:none ;
+  font-style: 13px;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* thêm để định vị logo tuyệt đối */
+}

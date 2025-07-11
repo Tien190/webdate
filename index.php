@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LoveConnect - Trang chủ</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;
@@ -15,15 +15,18 @@
 <body class="landing-page"></body>
   <section class="header" >
     <nav>
-      <a href="HOME.html"><img src="img/Logo.png" ></a>
+      <a href="index.php" class="logo-box">
+  <img src="assets/img/Logo.png" alt="Logo">
+  <span class="logo-text">HeartMatch</span>
+    </a>
+
       <div class="nav-link" id="navlink" >
         <i class="fa-solid fa-xmark" onclick ="hidenMenu()"></i>
         <ul>
-          
-          <li><a href = "ho_so.html"> Hồ sơ </a></li>
-          <li><a href = "tim_ban.html"> Kết bạn </a></li>
-          <li><a href = "Index.html"> Đăng xuất </a></li>
-
+          <li><a href = "Index.php"> Home </a></li>
+          <li><a href = "signin.php"> Kết bạn </a></li>
+          <li><a href =  "signup.php"> Đăng kí </a></li>
+          <li><a href = "signin.php"> Đăng nhập </a></li>
         </ul> 
       </div>
       <i class="fa-solid fa-bars" onclick ="showMenu()"></i>
@@ -33,7 +36,7 @@
     <h1>Trăm ngàn lời chat
 không bằng một lát bên nhau</h1>
     <p>Trang web hẹn hò giúp bạn tìm được nửa kia ưng ý</p><br>
-      <a href="tim_ban.html" class="hero-btn">KẾT NỐI</a> 
+      <a href="sign" class="hero-btn">BẮT ĐẦU</a> 
   </div>
 
   </section>
@@ -48,13 +51,13 @@ không bằng một lát bên nhau</h1>
       </p>
     </div>
     <div class="about-image">
-      <img src="img/girl.png" alt="Ảnh minh họa">
+      <img src="assets/img/girl.png" alt="Ảnh minh họa">
     </div>
   </div>
 
   <div class="about-extra">
     <div class="about-extra-img">
-      <img src="img/ketnoi.jpeg" alt="Cặp đôi">
+      <img src="assets/img/ketnoi.jpeg" alt="Cặp đôi">
     </div>
     <div class="about-extra-text">
       <p>
