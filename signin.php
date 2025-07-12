@@ -2,25 +2,24 @@
 session_start();
 require_once('includes/config.php');
 
-// Nếu là POST request → xử lý đăng nhập
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Content-Type: application/json");
 
-    $email = trim($_POST['email'] ?? '');
+    $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    if (empty($email) || empty($password)) {
+    if (empty($username) || empty($password)) {
         echo json_encode(["success" => false, "message" => "Vui lòng nhập đầy đủ thông tin."]);
         exit;
     }
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
     if (!$stmt) {
         echo json_encode(["success" => false, "message" => "Lỗi prepare: " . $conn->error]);
         exit;
     }
 
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -28,12 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['role'] = $user['role']; // ✅ lưu role vào session
+            $_SESSION['role'] = $user['role'];
 
             echo json_encode([
                 "success" => true,
                 "message" => "Đăng nhập thành công!",
-                "role" => $user['role'] // ✅ trả về role
+                "role" => $user['role']
             ]);
         } else {
             echo json_encode(["success" => false, "message" => "Sai mật khẩu."]);
@@ -45,7 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn->close();
     exit;
 }
+
+
 ?>
+
 
 <!-- Nếu là GET request → hiển thị form đăng nhập -->
 <!DOCTYPE html>
@@ -59,16 +61,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <div class="header">
     <nav>
-      <a href="index.php"><img src="img/Logo.png" alt="Logo"></a>
-    </nav>
+  <a href="index.php" class="logo-box" style="display: flex; align-items: center; text-decoration: none;">
+<img src="assets/img/Logo.png" alt="Logo" style="height: 100px; width: 190px;">
+    <span class="logo-text" style="margin-left: -38px; font-size: 40px; font-weight: bold; color: #e91e63;">HeartMatch</span>
+  </a>
+</nav>
 
     <div class="ctn">
       <form id="form-2" class="form" method="POST" action="signin.php">
         <h3 class="title">Đăng nhập</h3>
 
         <div class="form-group">
-          <label for="login-email" class="form-label">Email</label>
-          <input type="email" id="login-email" name="email" class="form-control" required>
+         <label for="login-username" class="form-label">Tên đăng nhập</label>
+          <input type="text" id="login-username" name="username" class="form-control" required>
         </div>
 
         <div class="form-group">
@@ -98,13 +103,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $('#form-2').on('submit', function (e) {
         e.preventDefault();
 
-        const email = $('#login-email').val();
+        const username = $('#login-username').val();
         const password = $('#login-password').val();
 
         $.post('signin.php', {
-          email: email,
-          password: password
-        }, function (res) {
+        username: username,
+        password: password
+       }, function (res) {
+
           if (res.success) {
             $('#success-message').show();
 
@@ -113,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               if (res.role === 'admin') {
                 window.location.href = 'admin/admin_dashboard.php';
               } else {
-                window.location.href = 'ho_so.html';
+                window.location.href = 'ho_so.php';
               }
             }, 1000);
           } else {

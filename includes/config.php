@@ -1,16 +1,18 @@
 <?php
-// CẤU HÌNH DATABASE (InfinityFree hoặc Localhost)
-$host = "sql100.infinityfree.com";           // InfinityFree
-$username = "if0_39432405";
-$password = "hsWVr1VoLFY";
-$database = "if0_39432405_HeartMatchDB";
+$host = 'localhost';         // Máy chủ database, thường là localhost trong XAMPP
+$db   = 'heartmatch';        // Tên cơ sở dữ liệu
+$user = 'root';              // Tên người dùng mặc định của XAMPP
+$pass = '';                  // Mật khẩu mặc định của XAMPP (để trống)
+$charset = 'utf8mb4';        // Bộ mã ký tự
 
-// Kết nối database
-$conn = new mysqli($host, $username, $password, $database);
-$conn->set_charset("utf8mb4");
+// Tạo kết nối mysqli
+$conn = new mysqli($host, $user, $pass, $db);
 
-// Kiểm tra lỗi
+// Kiểm tra kết nối
 if ($conn->connect_error) {
-    die("❌ Kết nối thất bại: " . $conn->connect_error);
+    die("Kết nối CSDL thất bại: " . $conn->connect_error);
 }
+
+// Thiết lập bộ mã ký tự
+$conn->set_charset($charset);
 ?>

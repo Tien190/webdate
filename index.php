@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LoveConnect - Trang chủ</title>
+  <title>HeartMatch - Trang chủ</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
   <section class="header" >
     <nav>
       <a href="index.php" class="logo-box">
-  <img src="assets/img/Logo.png" alt="Logo">
+<img src="assets/img/Logo.png" alt="Logo" style="height: 150px; width: auto;">
   <span class="logo-text">HeartMatch</span>
     </a>
 
@@ -36,7 +36,7 @@
     <h1>Trăm ngàn lời chat
 không bằng một lát bên nhau</h1>
     <p>Trang web hẹn hò giúp bạn tìm được nửa kia ưng ý</p><br>
-      <a href="sign" class="hero-btn">BẮT ĐẦU</a> 
+      <a href="signin.php" class="hero-btn">BẮT ĐẦU</a> 
   </div>
 
   </section>
@@ -44,10 +44,10 @@ không bằng một lát bên nhau</h1>
 <section class="about-section">
   <div class="about-container">
     <div class="about-text">
-      <h2>Waodate giúp bạn gặp gỡ những người cùng gu ngoài đời thật</h2>
+      <h2>HeartMatch giúp bạn gặp gỡ những người cùng gu ngoài đời thật</h2>
       <p>
-        LoveConnect được tạo ra nhằm kết nối những người cùng gu và đưa họ ra ngoài gặp mặt, hẹn hò với những cảm xúc thật – trải nghiệm thật. <br><br>
-        Nhờ phương thức kết đôi cực kỳ độc đáo, LoveConnect đã "mai mối" cho rất nhiều người dùng đến nay. Giúp cho khoảng cách không còn là rào cản của tình yêu.
+        HeartMatch được tạo ra nhằm kết nối những người cùng gu và đưa họ ra ngoài gặp mặt, hẹn hò với những cảm xúc thật – trải nghiệm thật. <br><br>
+        Nhờ phương thức kết đôi cực kỳ độc đáo, HeartMatch đã "mai mối" cho rất nhiều người dùng đến nay. Giúp cho khoảng cách không còn là rào cản của tình yêu.
       </p>
     </div>
     <div class="about-image">
@@ -61,9 +61,9 @@ không bằng một lát bên nhau</h1>
     </div>
     <div class="about-extra-text">
       <p>
-        Cách dùng LoveConnect đơn giản: bạn thích đối phương, chỉ cần ấn trái tim → sẽ gửi yêu cầu đến người khác tham gia nếu hợp gu.  
-        Cộng đồng LoveConnect hiện đã có hơn 200.000 người đăng ký khắp cả nước trong độ tuổi 18–35.  
-        Sứ mệnh của LoveConnect là giúp bạn yêu đúng người nhanh nhất – thật nhất.
+        Cách dùng HeartMatch đơn giản: bạn thích đối phương, chỉ cần ấn trái tim → sẽ gửi yêu cầu đến người khác tham gia nếu hợp gu.  
+        Cộng đồng HeartMatch hiện đã có hơn 200.000 người đăng ký khắp cả nước trong độ tuổi 18–35.  
+        Sứ mệnh của HeartMatch là giúp bạn yêu đúng người nhanh nhất – thật nhất.
       </p>
     </div>
   </div>

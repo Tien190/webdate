@@ -19,10 +19,20 @@ $currentUserId = $_SESSION['user_id'];
   <link rel="stylesheet" href="Tim_ban.css">
 </head>
 <body>
-  <div class="logo-bar">
-  <img src="img/Logo.png" alt="Logo" class="logo-icon">
-  <span class="logo-text">HeartMatch</span>
-</div>
+  <nav>
+  <a href="HOME.php" class="logo-link">
+    <div class="logo-bar">
+      <img src="assets/img/Logo.png" alt="Logo" class="logo-icon">
+      <span class="logo-text">HeartMatch</span>
+    </div>
+  </a>
+
+  <div class="nav-right">
+    <a href="logout.php" class="logout-btn">Đăng xuất</a>
+  </div>
+</nav>
+
+
   <h1 class="title">Danh sách gợi ý</h1>
 
   <div class="filter">
@@ -34,28 +44,42 @@ $currentUserId = $_SESSION['user_id'];
     </select>
   </div>
 
-  <!-- Nút điều hướng -->
   <div class="carousel-wrapper-outer">
     <button class="carousel-btn left" onclick="scrollCarousel(-1)">❮</button>
     <div class="carousel-wrapper" id="friendList">
       <?php 
-      $sql = "SELECT * FROM users WHERE id != $currentUserId";
-      $result = $conn->query($sql);
+     $sql = "SELECT users.id, users.username, users.email, 
+               pi.gender, pi.avatar, pi.full_name, pi.job, pi.hometown
+        FROM users 
+        LEFT JOIN personal_information pi ON users.id = pi.user_id
+        WHERE users.id != ?";
+
+
+      $stmt = $conn->prepare($sql);$stmt = $conn->prepare($sql);
+if (!$stmt) {
+    die("Lỗi prepare: " . $conn->error);
+}
+
+      $stmt->bind_param("i", $currentUserId);
+      $stmt->execute();
+      $result = $stmt->get_result();
       while ($row = $result->fetch_assoc()):
       ?>
-        <div class="profile-card" data-gender="<?= $row['gender'] ?>">
+        <div class="profile-card" data-gender="<?= htmlspecialchars($row['gender']) ?>">
           <div class="profile-image">
-            <img src="img/<?= $row['avatar'] ?>" alt="Avatar">
-          </div>
-          <div class="profile-info">
-            <h2><?= $row['username'] ?></h2>
-            <p><strong>Email:</strong> <?= $row['email'] ?></p>
-            <p><strong>Giới tính:</strong> <?= $row['gender'] ?></p>
-            <p><strong>Giới thiệu:</strong> <?= $row['about'] ?></p>
+          <img src="uploads/<?= htmlspecialchars($row['avatar']) ?>" alt="Avatar">
+
+          <h2><?= htmlspecialchars($row['full_name'] ?: $row['username']) ?></h2>
+
+          <p><strong>Email:</strong> <?= htmlspecialchars($row['email']) ?></p>
+
+          <p><strong>Giới tính:</strong> <?= htmlspecialchars($row['gender'] ?? 'Chưa rõ') ?></p>
+
+          <p><strong>Giới thiệu:</strong> Nghề nghiệp: <?= htmlspecialchars($row['job'] ?? 'Không có') ?> - Quê quán: <?= htmlspecialchars($row['hometown'] ?? 'Không có') ?></p>
           </div>
           <div class="actions">
-            <button class="message" onclick="openChatBox(<?= $row['id'] ?>, '<?= $row['username'] ?>')">Nhắn tin</button>
-            <button class="like" onclick="sendLike(<?= $row['id'] ?>, '<?= $row['username'] ?>')">❤️ Thích</button>
+            <button class="message" onclick="openChatBox(<?= $row['id'] ?>, '<?= htmlspecialchars($row['username']) ?>')">Nhắn tin</button>
+            <button class="like" onclick="sendLike(<?= $row['id'] ?>, '<?= htmlspecialchars($row['username']) ?>')">❤️ Thích</button>
           </div>
         </div>
       <?php endwhile; ?>
@@ -153,26 +177,24 @@ $currentUserId = $_SESSION['user_id'];
     }
 
     function sendLike(likedId, likedName) {
-  fetch('like_user.php', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ liked_id: likedId })
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.success) {
-      if (data.matched) {
-        showToast(`🎉 Bạn và ${likedName} đã match!`);
-      } else {
-        showToast(`❤️ Bạn đã thích ${likedName}`);
-      }
-    } else {
-      alert("Lỗi: " + data.message);
+      fetch('like_user.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ liked_id: likedId })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          if (data.matched) {
+            showToast(`🎉 Bạn và ${likedName} đã match!`);
+          } else {
+            showToast(`❤️ Bạn đã thích ${likedName}`);
+          }
+        } else {
+          alert("Lỗi: " + data.message);
+        }
+      });
     }
-    });
-    }
-
-
   </script>
 </body>
 </html>
